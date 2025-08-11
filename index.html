@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jancarlo Jams - Senior Data Analyst | Financial Analytics Expert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #D4AF37;
+            --primary-navy: #0F1419;
+            --secondary-navy: #1A2332;
+            --accent-blue: #2E5BBA;
+            --light-gold: #F5E6A8;
+            --text-primary: #0F1419;
+            --text-secondary: #4A5568;
+            --text-light: #718096;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8FAFC;
+            --bg-glass: rgba(255, 255, 255, 0.95);
+            --shadow-soft: 0 4px 20px rgba(15, 20, 25, 0.08);
+            --shadow-medium: 0 8px 40px rgba(15, 20, 25, 0.12);
+            --shadow-strong: 0 20px 60px rgba(15, 20, 25, 0.16);
+            --border-radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            --transition-fast: all 0.2s ease-out;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header Section */
+        .header {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 50%, var(--accent-blue) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:rgba(212,175,55,0.1);stop-opacity:1" /><stop offset="50%" style="stop-color:rgba(212,175,55,0.05);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(212,175,55,0.1);stop-opacity:1" /></linearGradient></defs><rect width="100" height="20" fill="url(%23grad)"/></svg>') repeat-x;
+            animation: shimmer 8s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(100px); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            animation: slideInLeft 1.2s ease-out;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            animation: slideInRight 1.2s ease-out;
+        }
+
+        .professional-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow-strong);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition);
+            max-width: 400px;
+        }
+
+        .professional-card:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-gold);
+            margin: 0 auto 24px;
+            background: white;
+            padding: 8px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .card-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            color: var(--accent-blue);
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, #F5E6A8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 24px;
+            opacity: 0.9;
+            color: var(--light-gold);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            max-width: 500px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, #B8941F 100%);
+            color: var(--text-primary);
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 16px 32px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--primary-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 12px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--primary-gold);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: var(--bg-primary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--accent-blue));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Experience & Education Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .info-card {
+            background: var(--bg-primary);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-gold), transparent);
+            opacity: 0.05;
+            border-radius: 0 var(--border-radius) 0 100%;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+            border-left-color: var(--accent-blue);
+        }
+
+        .info-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-card .icon {
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+        }
+
+        .info-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .tech-badges {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .tech-badge {
+            background: var(--bg-primary);
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .tech-badge:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--primary-gold);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: var(--bg-primary);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            position: relative;
+            group: hover;
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--primary-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><g fill="rgba(255,255,255,0.1)"><circle cx="20" cy="20" r="2"/><circle cx="80" cy="20" r="2"/><circle cx="50" cy="50" r="3"/><circle cx="20" cy="80" r="2"/><circle cx="80" cy="80" r="2"/></g></svg>') repeat;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .project-content {
+            padding: 32px;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .project-tech {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-fast);
+        }
+
+        .project-link:hover {
+            color: var(--primary-gold);
+            transform: translateX(4px);
+        }
+
+        /* Coming Soon */
+        .coming-soon {
+            text-align: center;
+            padding: 80px 40px;
+            background: var(--bg-primary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            border: 2px dashed rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+
+        .coming-soon::before {
+            content: '⚡';
+            font-size: 4rem;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            opacity: 0.1;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        .coming-soon h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .coming-soon p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-navy);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            background: var(--primary-gold);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                text-align: center;
+            }
+
+            .hero-name {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero-name {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .nav-link {
+                padding: 8px 16px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .info-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .tech-badges {
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-name">JANCARLO JAMS</h1>
+                    <h2 class="hero-subtitle">Senior Data Analyst & Financial Intelligence Expert</h2>
+                    <p class="hero-description">
+                        Especialista en análisis de datos financieros con experiencia comprobada en el sector bancario. 
+                        Transformo datos complejos en insights estratégicos que impulsan decisiones de negocio rentables y sostenibles.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="https://beacons.ai/data_jams" class="btn-primary" target="_blank">
+                            📱 Conectar Profesionalmente
+                        </a>
+                        <a href="#projects" class="btn-secondary">
+                            📊 Ver Portfolio
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="professional-card">
+                        <div class="profile-image">
+                            <img src="https://via.placeholder.com/120x120/D4AF37/0F1419?text=JJ" alt="Jancarlo Jams - Senior Data Analyst">
+                        </div>
+                        <h3 class="card-name">Jancarlo Jams</h3>
+                        <p class="card-title">Senior Data Analyst</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="#experience" class="nav-link">Experiencia</a></li>
+                    <li><a href="#education" class="nav-link">Formación</a></li>
+                    <li><a href="#projects" class="nav-link">Proyectos</a></li>
+                    <li><a href="#skills" class="nav-link">Competencias</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal">Experiencia Profesional</h2>
+                <p class="section-subtitle reveal">
+                    Trayectoria sólida en análisis financiero y gestión de datos en instituciones bancarias de prestigio
+                </p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card reveal">
+                    <h3><span class="icon">📊</span> Senior Data Analyst</h3>
+                    <p>Desarrollo e implementación de modelos predictivos para análisis de riesgo crediticio. Creación de dashboards ejecutivos para seguimiento de KPIs financieros. Optimización de procesos de reporting que redujo tiempos de análisis en 45%.</p>
+                </div>
+                <div class="info-card reveal">
+                    <h3><span class="icon">🏦</span> Analista Financiero - Banco Davivienda</h3>
+                    <p>Gestión integral de carteras de alto valor. Análisis de rentabilidad por segmento de clientes. Implementación de controles internos que mejoraron la precisión operativa en 30%.</p>
+                </div>
+                <div class="info-card reveal">
+                    <h3><span class="icon">📋</span> Especialista Contable & Business Intelligence</h3>
+                    <p>Automatización de procesos contables mediante Power BI y Excel avanzado. Reconciliación de estados financieros complejos. Desarrollo de reportes regulatorios para cumplimiento normativo.</p>
+                </div>
+                <div class="info-card reveal">
+                    <h3><span class="icon">🎓</span> Analista Junior - Banco Nacional CR</h3>
+                    <p>Inicio de carrera en auditoría interna y análisis de estados financieros. Apoyo en procesos de debida diligencia. Validación de procedimientos contables según normativas locales e internacionales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal">Formación Académica</h2>
+                <p class="section-subtitle reveal">
+                    Educación especializada en finanzas, análisis de datos y administración empresarial
+                </p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card reveal">
+                    <h3><span class="icon">🎓</span> Especialización en Análisis de Negocios y Datos</h3>
+                    <p>Metodologías avanzadas de análisis estadístico, machine learning aplicado a finanzas, y business intelligence. Especialización en herramientas de visualización y modelado predictivo.</p>
+                </div>
+                <div class="info-card reveal">
+                    <h3><span class="icon">💼</span> Licenciatura en Administración de Empresas</h3>
+                    <p>Formación integral en gestión empresarial, finanzas corporativas, análisis de inversiones y estrategia organizacional. Enfoque en toma de decisiones basada en datos.</p>
+                </div>
+                <div class="info-card reveal">
+                    <h3><span class="icon">📈</span> Técnico Superior en Contabilidad Financiera</h3>
+                    <p>Fundamentos sólidos en principios contables internacionales (NIIF), análisis de estados financieros, y gestión de sistemas de información contable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal">Portfolio de Proyectos</h2>
+                <p class="section-subtitle reveal">
+                    Soluciones analíticas desarrolladas con herramientas líderes del mercado financiero
+                </p>
+            </div>
+
+            <!-- Power BI Projects -->
+            <div style="margin-bottom: 80px;">
+                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--text-primary);">📊 Microsoft Power BI</h3>
+                <div class="tech-badges">
+                    <div class="tech-badge">
+                        <img src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" alt="Power BI">
+                    </div>
+                </div>
+                
+                <div class="projects-grid">
+                    <div class="project-card reveal">
+                        <div class="project-image">📈 Financial Analysis Dashboard</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Análisis Financiero Integral</h3>
+                            <p class="project-tech">ETL • DAX • UX/UI Design</p>
+                            <p class="project-description">Dashboard ejecutivo para análisis de rentabilidad, liquidez y solvencia financiera. Incluye métricas automáticas de rendimiento y alertas predictivas.</p>
+                            <a href="https://app.powerbi.com/view?r=eyJrIjoiYWQ2YzJkNjEtZjJkNS00YjBlLTliODItMjQwY2Y0NDZjMjk3IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" target="_blank" class="project-link">
+                                Ver Análisis →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-image">💹 Income Statement</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Estado de Resultados Dinámico</h3>
+                            <p class="project-tech">Power Query • DAX • Financial Modeling</p>
+                            <p class="project-description">Reporte automatizado de P&L con comparativos mensuales, análisis de variaciones y proyecciones financieras integradas.</p>
+                            <a href="https://app.powerbi.com/view?r=eyJrIjoiZmU5NzMzY2EtMGRjZi00Mjg3LWEzZmUtMDc0ZTM5Mjg2Zjk1IiwidCI6ImRmODY3OWNkLWE4
